@@ -371,6 +371,7 @@ const ImageButton = () => {
     </>
   );
 };
+
 const LinkButton = () => {
   const { editor } = useEditorStore();
   const [value, setValue] = useState("");
@@ -430,6 +431,7 @@ const HighlightColorButton = () => {
     </DropdownMenu>
   );
 };
+
 const TextColorButton = () => {
   const { editor } = useEditorStore();
   const value = editor?.getAttributes("textStyle").color || "#000000";
