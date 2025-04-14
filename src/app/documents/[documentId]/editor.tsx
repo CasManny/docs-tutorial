@@ -23,9 +23,15 @@ import TableRow from "@tiptap/extension-table-row";
 import { useEditorStore } from "@/store/use-editor-store";
 import { FontSizeExtension } from "@/extensions/font-size";
 import { LineHeightExtension } from "@/extensions/line-height";
+
+import {
+  useLiveblocksExtension,
+  FloatingToolbar,
+} from "@liveblocks/react-tiptap";
 import { Ruler } from "./ruler";
 
 export const Editor = () => {
+  const liveblocks = useLiveblocksExtension();
   const { setEditor } = useEditorStore();
   const editor = useEditor({
     immediatelyRender: false,
@@ -61,6 +67,7 @@ export const Editor = () => {
       },
     },
     extensions: [
+      liveblocks,
       StarterKit,
       TextAlign.configure({
         types: ["heading", "paragraph"],
