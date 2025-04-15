@@ -125,6 +125,9 @@ export const getById = query({
   args: { id: v.id("documents") },
   handler: async (ctx, { id }) => {
     const document = await ctx.db.get(id);
+    if (!document) {
+      throw new ConvexError("Unauthorized")
+    }
     return document;
   },
 });
